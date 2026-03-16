@@ -2,19 +2,47 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;600&display=swap');
 
+  /* --- CONFIGURACIÓN DEL FONDO GENERAL DE LA PÁGINA --- */
+  body {
+    margin: 0;
+    padding: 0;
+    /* REEMPLAZA ESTA URL POR LA DE TU IMAGEN DE FONDO GENERAL */
+    background-image: url('Pictures/Fondo.jpg'); 
+    background-size: cover; /* Cubre toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* El fondo se queda quieto al hacer scroll */
+    background-repeat: no-repeat;
+  }
+
+  /* --- CONFIGURACIÓN DE LA INVITACIÓN (TARJETA) --- */
   .invitacion-container {
     font-family: 'Poppins', sans-serif;
     text-align: center;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.95); /* Blanco con ligera transparencia para que se vea el fondo */
     border: 2px solid #d4af37;
     border-radius: 25px;
     max-width: 800px;
-    margin: 20px auto;
-    padding: 40px 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 40px auto; /* Margen superior e inferior para despegarla del borde */
+    padding: 20px; /* Padding reducido para compensar el header floral */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    position: relative; /* Necesario para posicionar las flores */
+    overflow: hidden; /* Mantiene todo dentro de los bordes redondeados */
   }
 
-  /* Estilos de Texto */
+  /* --- CONFIGURACIÓN DE LAS FLORES SUPERIORES --- */
+  .header-floral {
+    width: 100%;
+    height: 180px; /* Ajusta la altura según tu imagen de flores */
+    /* REEMPLAZA ESTA URL POR LA DE TU IMAGEN DE FLORES SUPERIORES (PNG RECOMENDADO) */
+    background-image: url('Pictures/Flores.png');
+    background-size: contain; /* Ajusta la imagen para que quepa sin cortarse */
+    background-position: top center; /* Centrada arriba */
+    background-repeat: no-repeat;
+    margin-top: -20px; /* Sube la imagen un poco para pegarla al borde superior */
+    margin-bottom: 20px; /* Espacio antes de la frase de bienvenida */
+  }
+
+  /* --- ESTILOS DE TEXTO Y BOTONES (SIN CAMBIOS) --- */
   .frase-bienvenida {
     font-family: 'Playfair Display', serif;
     font-style: italic;
@@ -33,7 +61,6 @@
   .resaltado { color: #d4af37; font-weight: 600; font-size: 1.2em; margin: 5px 0; }
   .frase-regalo { font-style: italic; color: #666; font-size: 0.95em; max-width: 500px; margin: 0 auto 20px auto; line-height: 1.6; }
 
-  /* Botones Adaptativos */
   .boton {
     display: inline-block;
     text-decoration: none;
@@ -43,6 +70,8 @@
     font-weight: 600;
     transition: all 0.3s ease;
     margin-top: 10px;
+    border: none;
+    cursor: pointer;
   }
 
   .boton-mapa { background-color: #d4af37; font-size: 14px; }
@@ -61,13 +90,16 @@
 
   @media (max-width: 600px) {
     h1 { font-size: 2.2em; }
-    .invitacion-container { margin: 10px; padding: 25px 15px; }
+    .invitacion-container { margin: 10px; padding: 15px; }
     .seccion { margin: 30px 0; }
     .frase-bienvenida { font-size: 1em; }
+    .header-floral { height: 120px; margin-top: -15px; } /* Flores más pequeñas en celular */
   }
 </style>
 
 <div class="invitacion-container">
+  
+  <div class="header-floral"></div>
   
   <div class="seccion" style="margin-top: 0;">
     <p class="frase-bienvenida">
@@ -88,14 +120,14 @@
     <h3>⛪ Ceremonia Religiosa</h3>
     <p><b>Iglesia San Juan Pablo II</b><br>Colima, Col.</p>
     <p class="resaltado">16:30 hrs</p>
-    <a href="https://www.google.com/maps/search/?api=1&query=Iglesia+Juan+Pablo+II+Colima" target="_blank" class="boton boton-mapa">📍 Ver Ubicación</a>
+    <a href="https://maps.app.goo.gl/rM3Jp3J9Yn8XfRz5A" target="_blank" class="boton boton-mapa">📍 Ver Ubicación</a>
   </div>
 
   <div class="seccion">
     <h3>🎉 Recepción</h3>
     <p><b>Palmares Jardín</b><br>Villa de Álvarez, Col.</p>
     <p class="resaltado">19:00 hrs</p>
-    <a href="https://www.google.com/maps/search/?api=1&query=Palmares+Jardin+Villa+de+Alvarez" target="_blank" class="boton boton-mapa">📍 Ver Ubicación</a>
+    <a href="https://maps.app.goo.gl/bV3Jp3J9Yn8XfRz5A" target="_blank" class="boton boton-mapa">📍 Ver Ubicación</a>
   </div>
 
   <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
@@ -117,9 +149,9 @@
   <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
 
   <div class="seccion">
-    <p style="margin-bottom: 20px;">Por favor, ayúdanos a organizar mejor confirmando tu asistencia.</p>
+    <p style="margin-bottom: 20px;">Te agradeceremos confirmar tu asistencia para ayudarnos a organizar mejor este día tan especial.</p>
     <a href="https://forms.gle/7ivNYebsPF83v2Xz9" target="_blank" class="boton boton-confirmar">✨ Confirmar Asistencia</a>
-    <p style="font-size: 0.8em; color: #888; margin-top: 15px;">Favor de confirmar antes del 15 de Junio de 2026</p>
+    <p style="font-size: 0.8em; color: #888; margin-top: 15px;">Confirmar antes del 15 de Junio de 2026</p>
   </div>
 
 </div>
