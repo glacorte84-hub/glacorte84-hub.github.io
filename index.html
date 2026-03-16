@@ -1,6 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;600&display=swap');
 
   .invitacion-container {
     font-family: 'Poppins', sans-serif;
@@ -14,17 +14,30 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   }
 
-  h1 { font-family: 'Playfair Display', serif; color: #d4af37; font-size: 3em; margin: 10px 0; }
-  h2 { font-weight: 300; letter-spacing: 3px; color: #555; text-transform: uppercase; font-size: 1.2em; }
-  h3 { color: #333; margin-bottom: 5px; }
-  
-  .seccion { margin: 35px 0; padding: 0 10px; }
-  .resaltado { color: #d4af37; font-weight: 600; font-size: 1.2em; margin: 5px 0; }
+  /* Estilos de Texto */
+  .frase-bienvenida {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #8e44ad;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    padding: 0 20px;
+  }
 
+  h1 { font-family: 'Playfair Display', serif; color: #d4af37; font-size: 3em; margin: 10px 0; }
+  h2 { font-weight: 300; letter-spacing: 3px; color: #555; text-transform: uppercase; font-size: 1.1em; margin-bottom: 0; }
+  h3 { color: #333; margin-bottom: 10px; font-family: 'Playfair Display', serif; font-size: 1.6em; }
+  
+  .seccion { margin: 40px 0; padding: 0 15px; }
+  .resaltado { color: #d4af37; font-weight: 600; font-size: 1.2em; margin: 5px 0; }
+  .frase-regalo { font-style: italic; color: #666; font-size: 0.95em; max-width: 500px; margin: 0 auto 20px auto; line-height: 1.6; }
+
+  /* Botones Adaptativos */
   .boton {
     display: inline-block;
     text-decoration: none;
-    color: #fff;
+    color: #fff !important;
     padding: 12px 25px;
     border-radius: 50px;
     font-weight: 600;
@@ -34,6 +47,9 @@
 
   .boton-mapa { background-color: #d4af37; font-size: 14px; }
   .boton-mapa:hover { background-color: #b8962d; transform: translateY(-2px); }
+
+  .boton-liverpool { background-color: #e61d8c; font-size: 14px; }
+  .boton-liverpool:hover { background-color: #c01675; transform: translateY(-2px); }
 
   .boton-confirmar { 
     background-color: #8e44ad; 
@@ -46,14 +62,22 @@
   @media (max-width: 600px) {
     h1 { font-size: 2.2em; }
     .invitacion-container { margin: 10px; padding: 25px 15px; }
-    .seccion { margin: 25px 0; }
-    .boton-confirmar { width: 80%; }
+    .seccion { margin: 30px 0; }
+    .frase-bienvenida { font-size: 1em; }
   }
 </style>
 
 <div class="invitacion-container">
-  <h2>¡Mis XV Años!</h2>
-  <h1>Victoria Getsemani</h1>
+  
+  <div class="seccion" style="margin-top: 0;">
+    <p class="frase-bienvenida">
+      "Hay momentos en la vida que se vuelven mágicos,<br>
+      y compartirlos con las personas que más queremos<br>
+      los hace inolvidables."
+    </p>
+    <h2>Mis XV Años</h2>
+    <h1>Victoria Getsemani</h1>
+  </div>
   
   <div class="seccion">
     <p class="resaltado">Sábado 11 de Julio, 2026</p>
@@ -64,21 +88,38 @@
     <h3>⛪ Ceremonia Religiosa</h3>
     <p><b>Iglesia Juan Pablo II</b><br>Colima, Col.</p>
     <p class="resaltado">16:30 hrs</p>
-    <a href="https://maps.google.com/?q=Iglesia+Juan+Pablo+II+Colima" target="_blank" class="boton boton-mapa">📍 Cómo llegar</a>
+    <a href="https://www.google.com/maps/search/?api=1&query=Iglesia+Juan+Pablo+II+Colima" target="_blank" class="boton boton-mapa">📍 Ver Ubicación</a>
   </div>
 
   <div class="seccion">
     <h3>🎉 Recepción</h3>
     <p><b>Palmares Jardín</b><br>Villa de Álvarez, Col.</p>
     <p class="resaltado">19:00 hrs</p>
-    <a href="https://maps.google.com/?q=Palmares+Jardin+Villa+de+Alvarez" target="_blank" class="boton boton-mapa">📍 Cómo llegar</a>
+    <a href="https://www.google.com/maps/search/?api=1&query=Palmares+Jardin+Villa+de+Alvarez" target="_blank" class="boton boton-mapa">📍 Ver Ubicación</a>
   </div>
 
   <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
 
   <div class="seccion">
-    <p style="margin-bottom: 20px;">Para nosotros es muy importante contar con tu presencia.</p>
-    <a href="https://forms.gle/7ivNYebsPF83v2Xz9" target="_blank" class="boton boton-confirmar">✨ Confirmar Asistencia aquí</a>
+    <h3>🎁 Sugerencia de Regalos</h3>
+    <p class="frase-regalo">
+      "Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle con Victoria, 
+      contaremos con una lluvia de sobres el día del evento o puedes elegir algo de nuestra mesa de regalos."
+    </p>
+    
+    <a href="#" target="_blank" class="boton boton-liverpool">🛍️ Mesa de Regalos Liverpool</a>
+    
+    <p style="margin-top: 15px; font-size: 0.9em; color: #555;">
+      ✉️ <b>Lluvia de sobres:</b> Se dispondrá de un cofre en la recepción.
+    </p>
+  </div>
+
+  <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
+
+  <div class="seccion">
+    <p style="margin-bottom: 20px;">Por favor, ayúdanos a organizar mejor confirmando tu asistencia.</p>
+    <a href="https://forms.gle/7ivNYebsPF83v2Xz9" target="_blank" class="boton boton-confirmar">✨ Confirmar Asistencia</a>
     <p style="font-size: 0.8em; color: #888; margin-top: 15px;">Favor de confirmar antes del 15 de Junio de 2026</p>
   </div>
+
 </div>
