@@ -34,10 +34,3 @@ jobs:
           context: "."
           push: true
           tags: kepex/victoria:latest
-      -
-        name: Google Chat Notification
-        uses: kepex/rino-monorepo/.github/actions/notify@main
-        with:
-          basic_auth_user: ${{ secrets.BASIC_AUTH_USER }}
-          basic_auth_pass: ${{ secrets.BASIC_AUTH_PASS }}
-        if: always()
