@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quincevictoria-deployment
+  annotations:
+    keel.sh/policy: force
+    keel.sh/trigger: dockerhub
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: victoria-deployment
+  template:
+    metadata:
+      labels:
+        app: quincevictoria-deployment
+    spec:
+      dnsPolicy: ClusterFirst
+      containers:
+      - name: quincevictoria-container
+        image: kepex/victoria:latest
+
+        ports:
+          - containerPort: 8080
+      imagePullSecrets:
+        - name: regcred
+    
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: quincevictoria-service
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: quincevictoria-deployment
+  type: ClusterIP
+
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: quincevictoria-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+  labels:
+    kcert.dev/ingress: "managed"
+
+spec:
+  tls:
+  - hosts:
+    - vickyquince.com
+    secretName: mono-hangfire-tls
+  rules:
+  - host: vickyquince.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: quincevictoria-service
+            port: 
+              number: 8080
+
+
