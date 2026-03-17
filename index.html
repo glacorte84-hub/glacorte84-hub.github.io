@@ -277,7 +277,16 @@
 
   <div class="seccion">
     <p style="margin-bottom: 20px;">Te agradeceremos confirmar tu asistencia para ayudarnos a organizar mejor este día tan especial.</p>
-    <a href="https://forms.gle/7ivNYebsPF83v2Xz9" target="_blank" class="boton boton-confirmar">✨ Confirmar Asistencia</a>
+	<p style="margin-bottom: 15px; font-size: 0.8em;">Por seguridad, ingresa tu nombre y apellidos, o apellidos de familia. Ejemplos: Juan Lopez Santana o Lopez Santana:</p>
+  
+    <input type="text" id="nombreInvitado" placeholder="Escribe tu nombre aquí..." 
+         style="width: 80%; padding: 12px; border-radius: 10px; border: 1px solid #ccc; margin-bottom: 15px; text-align: center; font-family: 'Poppins', sans-serif;">
+
+    <div id="mensajeError" style="color: #c0392b; font-size: 0.8em; margin-bottom: 10px; display: none;">
+         Lo sentimos, ese nombre no coincide con nuestra lista.
+    </div>
+    <a href="https://forms.gle/7ivNYebsPF83v2Xz9" id="btnConfirmar" target="_blank" class="boton boton-confirmar" 
+     style="background-color: #ccc; pointer-events: none; cursor: not-allowed; transition: 0.3s; opacity: 0.5;">✨ Confirmar Asistencia</a>
     <p style="font-size: 0.8em; color: #888; margin-top: 15px;">Confirmar antes del 15 de Junio de 2026</p>
   </div>
 
@@ -309,4 +318,43 @@
   // Actualizar cada segundo
   setInterval(updateCountdown, 1000);
   updateCountdown(); // Ejecutar una vez al cargar
+
+	  // --- TU LISTA DE INVITADOS ---
+  // Escribe los nombres exactamente como los quieres (pueden ser apellidos o nombres completos)
+  // El sistema ignorará mayúsculas/minúsculas automáticamente.
+  const listaInvitados = [
+	"Cecilia Cano Balboa",
+	"Aguirre Balboa",
+    "Alfredo Aguirre Valdez"
+  ];
+
+  const inputNombre = document.getElementById('nombreInvitado');
+  const btnConfirmar = document.getElementById('btnConfirmar');
+  const mensajeError = document.getElementById('mensajeError');
+
+  inputNombre.addEventListener('input', function() {
+    const valorInput = inputNombre.value.trim().toLowerCase();
+    
+    // Verificamos si el nombre ingresado está en la lista (ignorando mayúsculas)
+    const encontrado = listaInvitados.some(invitado => invitado.toLowerCase() === valorInput);
+
+    if (encontrado) {
+      // ACTIVAR BOTÓN
+      btnConfirmar.style.backgroundColor = "#8e44ad"; // Color morado original
+      btnConfirmar.style.pointerEvents = "auto";
+      btnConfirmar.style.cursor = "pointer";
+      btnConfirmar.style.opacity = "1";
+      mensajeError.style.display = "none";
+      inputNombre.style.borderColor = "#27ae60"; // Verde de éxito
+    } else {
+      // DESACTIVAR BOTÓN (si borran el nombre o está mal)
+      btnConfirmar.style.backgroundColor = "#ccc";
+      btnConfirmar.style.pointerEvents = "none";
+      btnConfirmar.style.opacity = "0.5";
+      
+      if (valorInput.length > 5) { // Mostrar error solo si ya escribió algo largo
+        mensajeError.style.display = "block";
+      }
+    }
+  });
 </script>
