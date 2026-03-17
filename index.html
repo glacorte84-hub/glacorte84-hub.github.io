@@ -154,6 +154,39 @@
   .boton-confirmar {
     animation: pulse 2.5s ease-in-out infinite 2s;
   }
+  
+  /* --- Contador regresivo --- */
+  .contador-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .contador-item {
+    background: #fdfaf0;
+    border: 1px solid #d4af37;
+    border-radius: 10px;
+    padding: 10px;
+    min-width: 60px;
+  }
+  .contador-numero {
+    display: block;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+  }
+  .contador-etiqueta {
+    font-size: 0.7em;
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: 1px;
+  }
+  @media (max-width: 600px) {
+    .contador-grid { gap: 8px; }
+    .contador-item { min-width: 50px; padding: 5px; }
+    .contador-numero { font-size: 1.2em; }
+  }
 </style>
 
 <div class="invitacion-container">
@@ -173,6 +206,23 @@
   <div class="seccion">
     <p class="resaltado">Sábado 11 de Julio, 2026</p>
     <hr style="width: 30%; border: 0; border-top: 1px solid #d4af37; margin: auto;">
+    <div id="countdown" class="contador-grid">
+      <div class="contador-item">
+        <span id="days" class="contador-numero">00</span>
+        <span class="contador-etiqueta">Días</span>
+      </div>
+      <div class="contador-item">
+        <span id="hours" class="contador-numero">00</span>
+        <span class="contador-etiqueta">Hrs</span>
+      </div>
+      <div class="contador-item">
+        <span id="minutes" class="contador-numero">00</span>
+        <span class="contador-etiqueta">Min</span>
+      </div>
+      <div class="contador-item">
+        <span id="seconds" class="contador-numero">00</span>
+        <span class="contador-etiqueta">Seg</span>
+      </div>
   </div>
 
   <div class="seccion">
@@ -214,3 +264,31 @@
   </div>
 
 </div>
+
+<script>
+  function updateCountdown() {
+    // Fecha objetivo: 11 de Julio 2026 a las 16:30 (Hora de la Misa)
+    const eventDate = new Date("July 11, 2026 16:30:00").getTime();
+    const now = new Date().getTime();
+    const difference = eventDate - now;
+
+    if (difference <= 0) {
+      document.getElementById("countdown").innerHTML = "<p class='resaltado'>¡Hoy es el gran día!</p>";
+      return;
+    }
+
+    const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = d < 10 ? "0" + d : d;
+    document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
+    document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
+    document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
+  }
+
+  // Actualizar cada segundo
+  setInterval(updateCountdown, 1000);
+  updateCountdown(); // Ejecutar una vez al cargar
+</script>
