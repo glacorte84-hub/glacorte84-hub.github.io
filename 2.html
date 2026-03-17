@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XV Años - Victoria Getsemani</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;600&display=swap');
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-image: url('./Pictures/Fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+  }
+
+  .invitacion-container {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid #d4af37;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-floral {
+    width: 100%;
+    height: 180px;
+    background-image: url('./Pictures/Flores.png');
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    margin-top: -20px;
+    margin-bottom: 20px;
+  }
+
+  .frase-bienvenida {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #555;
+    font-size: clamp(0.9em, 2.5vw, 1.1em);
+    margin-bottom: 20px;
+    line-height: 1.6;
+    padding: 0 10px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    color: #d4af37;
+    font-size: clamp(1.8em, 6vw, 3em);
+    margin: 10px 0;
+    word-break: break-word;
+  }
+
+  h2 {
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: #555;
+    text-transform: uppercase;
+    font-size: clamp(0.9em, 2.5vw, 1.1em);
+    margin-bottom: 0;
+  }
+
+  h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2em, 3.5vw, 1.6em);
+  }
+
+  .seccion {
+    margin: 40px 0;
+    padding: 0 15px;
+  }
+
+  .resaltado {
+    color: #d4af37;
+    font-weight: 600;
+    font-size: clamp(1em, 3vw, 1.2em);
+    margin: 5px 0;
+  }
+
+  .frase-regalo {
+    font-style: italic;
+    color: #666;
+    font-size: clamp(0.85em, 2.5vw, 0.95em);
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+    line-height: 1.6;
+    padding: 0 10px;
+  }
+
+  .divider {
+    width: 30%;
+    border: 0;
+    border-top: 1px solid #d4af37;
+    margin: auto;
+  }
+
+  .divider-light {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 40px 0;
+  }
+
+  .boton {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff !important;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+
+  .boton-mapa { background-color: #d4af37; }
+  .boton-mapa:hover { background-color: #b8962d; transform: translateY(-2px); }
+
+  .boton-liverpool { background-color: #e61d8c; }
+  .boton-liverpool:hover { background-color: #c01675; transform: translateY(-2px); }
+
+  .boton-confirmar {
+    background-color: #8e44ad;
+    font-size: clamp(0.95em, 2.5vw, 1.1em);
+    padding: 15px 40px;
+    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
+  }
+  .boton-confirmar:hover { background-color: #732d91; transform: scale(1.05); }
+
+  .sobre-info {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #555;
+  }
+
+  .confirmar-nota {
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 15px;
+  }
+
+  /* --- RESPONSIVE BREAKPOINTS --- */
+
+  @media (max-width: 768px) {
+    .invitacion-container {
+      width: 94%;
+      margin: 20px auto;
+      padding: 15px;
+    }
+    .header-floral {
+      height: 140px;
+      margin-top: -15px;
+    }
+    .seccion {
+      margin: 30px 0;
+      padding: 0 10px;
+    }
+    .divider-light {
+      margin: 30px 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    body {
+      background-attachment: scroll;
+    }
+    .invitacion-container {
+      width: 96%;
+      margin: 10px auto;
+      padding: 12px;
+      border-radius: 18px;
+    }
+    .header-floral {
+      height: 100px;
+      margin-top: -12px;
+      margin-bottom: 15px;
+    }
+    .seccion {
+      margin: 20px 0;
+      padding: 0 8px;
+    }
+    .boton {
+      padding: 10px 20px;
+      font-size: 13px;
+    }
+    .boton-confirmar {
+      padding: 12px 30px;
+    }
+    .divider-light {
+      margin: 25px 0;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .invitacion-container {
+      width: 98%;
+      margin: 5px auto;
+      padding: 10px;
+    }
+    .header-floral {
+      height: 80px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="invitacion-container">
+
+  <div class="header-floral"></div>
+
+  <div class="seccion" style="margin-top: 0;">
+    <p class="frase-bienvenida">
+      "Hay momentos en la vida que se vuelven mágicos,
+      y compartirlos con las personas que más queremos
+      los hace inolvidables."
+    </p>
+    <h3>Mis XV Años</h3>
+    <h1>Victoria Getsemani</h1>
+  </div>
+
+  <div class="seccion">
+    <p class="resaltado">Sábado 11 de Julio, 2026</p>
+    <hr class="divider">
+  </div>
+
+  <div class="seccion">
+    <h3>⛪ Ceremonia Religiosa</h3>
+    <p><b>Iglesia San Juan Pablo II</b><br>Colima, Col.</p>
+    <p class="resaltado">16:30 hrs</p>
+    <a href="https://maps.app.goo.gl/rM3Jp3J9Yn8XfRz5A" target="_blank" class="boton boton-mapa">📍 Ver Ubicación</a>
+  </div>
+
+  <div class="seccion">
+    <h3>🎉 Recepción</h3>
+    <p><b>Palmares Jardín</b><br>Villa de Álvarez, Col.</p>
+    <p class="resaltado">19:00 hrs</p>
+    <a href="https://maps.app.goo.gl/bV3Jp3J9Yn8XfRz5A" target="_blank" class="boton boton-mapa">📍 Ver Ubicación</a>
+  </div>
+
+  <hr class="divider-light">
+
+  <div class="seccion">
+    <h3>🎁 Sugerencia de Regalos</h3>
+    <p class="frase-regalo">
+      "Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle con Victoria,
+      contaremos con una lluvia de sobres el día del evento o puedes elegir algo de nuestra mesa de regalos."
+    </p>
+    <a href="#" target="_blank" class="boton boton-liverpool">🛍️ Mesa de Regalos Liverpool</a>
+    <p class="sobre-info">
+      ✉️ <b>Lluvia de sobres:</b> Se dispondrá de un cofre en la recepción.
+    </p>
+  </div>
+
+  <hr class="divider-light">
+
+  <div class="seccion">
+    <p style="margin-bottom: 20px;">Te agradeceremos confirmar tu asistencia para ayudarnos a organizar mejor este día tan especial.</p>
+    <a href="https://forms.gle/7ivNYebsPF83v2Xz9" target="_blank" class="boton boton-confirmar">✨ Confirmar Asistencia</a>
+    <p class="confirmar-nota">Confirmar antes del 15 de Junio de 2026</p>
+  </div>
+
+</div>
+
+</body>
+</html>
