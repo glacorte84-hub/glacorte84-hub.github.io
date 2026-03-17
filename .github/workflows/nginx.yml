@@ -10,7 +10,7 @@ on:
 
 jobs:
   docker:
-    runs-on: ubicloud-standard-4
+    runs-on: ubuntu-latest
     steps:
       -
         name: Set up QEMU
