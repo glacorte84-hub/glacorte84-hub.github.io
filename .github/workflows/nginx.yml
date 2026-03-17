@@ -5,9 +5,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'index.html'
-      - 'Pictures/**'
-      - 'Dockerfile'
+      - '*'
   workflow_dispatch:
 
 jobs:
@@ -35,7 +33,7 @@ jobs:
         with:
           context: "."
           push: true
-          tags: kepex/glacorte84-hub:latest
+          tags: kepex/victoria:latest
       -
         name: Google Chat Notification
         uses: kepex/rino-monorepo/.github/actions/notify@main
