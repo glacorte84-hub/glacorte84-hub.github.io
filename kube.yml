@@ -59,6 +59,7 @@ spec:
   tls:
   - hosts:
     - vickyquince.com
+    - www.vickyquince.com
     secretName: mono-hangfire-tls
   rules:
   - host: vickyquince.com
