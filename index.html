@@ -1,283 +1,282 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;600&display=swap');
 
-  /* --- CONFIGURACIÓN DEL FONDO GENERAL DE LA PÁGINA --- */
-  body {
-    margin: 0;
-    padding: 0;
-    /* REEMPLAZA ESTA URL POR LA DE TU IMAGEN DE FONDO GENERAL */
-    background-image: url('./Pictures/Fondo.jpg'); 
-    background-size: cover; /* Cubre toda la pantalla */
-    background-position: center; /* Centra la imagen */
-    background-attachment: fixed; /* El fondo se queda quieto al hacer scroll */
-    background-repeat: no-repeat;
-  }
+/* --- CONFIGURACIÓN DEL FONDO GENERAL DE LA PÁGINA --- */
+body {
+margin: 0;
+padding: 0;
+/* REEMPLAZA ESTA URL POR LA DE TU IMAGEN DE FONDO GENERAL */
+background-image: url('./Pictures/Fondo.jpg'); 
+background-size: cover; /* Cubre toda la pantalla */
+background-position: center; /* Centra la imagen */
+background-attachment: fixed; /* El fondo se queda quieto al hacer scroll */
+background-repeat: no-repeat;
+}
 
-  /* --- CONFIGURACIÓN DE LA INVITACIÓN (TARJETA) --- */
-  .invitacion-container {
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.95); /* Blanco con ligera transparencia para que se vea el fondo */
-    border: 2px solid #d4af37;
-    border-radius: 25px;
-    max-width: 800px;
-    margin: 40px auto; /* Margen superior e inferior para despegarla del borde */
-    padding: 20px; /* Padding reducido para compensar el header floral */
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-    position: relative; /* Necesario para posicionar las flores */
-    overflow: hidden; /* Mantiene todo dentro de los bordes redondeados */
-  }
+/* --- CONFIGURACIÓN DE LA INVITACIÓN (TARJETA) --- */
+.invitacion-container {
+font-family: 'Poppins', sans-serif;
+text-align: center;
+background-color: rgba(255, 255, 255, 0.95); /* Blanco con ligera transparencia para que se vea el fondo */
+border: 2px solid #d4af37;
+border-radius: 25px;
+max-width: 800px;
+margin: 40px auto; /* Margen superior e inferior para despegarla del borde */
+padding: 20px; /* Padding reducido para compensar el header floral */
+box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+position: relative; /* Necesario para posicionar las flores */
+overflow: hidden; /* Mantiene todo dentro de los bordes redondeados */
+}
 
-  /* --- CONFIGURACIÓN DE LAS FLORES SUPERIORES --- */
-  .header-floral {
-    width: 100%;
-    height: 180px; /* Ajusta la altura según tu imagen de flores */
-    /* REEMPLAZA ESTA URL POR LA DE TU IMAGEN DE FLORES SUPERIORES (PNG RECOMENDADO) */
-    background-image: url('./Pictures/Flores.png');
-    background-size: contain; /* Ajusta la imagen para que quepa sin cortarse */
-    background-position: top center; /* Centrada arriba */
-    background-repeat: no-repeat;
-    margin-top: -20px; /* Sube la imagen un poco para pegarla al borde superior */
-    margin-bottom: 20px; /* Espacio antes de la frase de bienvenida */
-  }
+/* --- CONFIGURACIÓN DE LAS FLORES SUPERIORES --- */
+.header-floral {
+width: 100%;
+height: 180px; /* Ajusta la altura según tu imagen de flores */
+/* REEMPLAZA ESTA URL POR LA DE TU IMAGEN DE FLORES SUPERIORES (PNG RECOMENDADO) */
+background-image: url('./Pictures/Flores.png');
+background-size: contain; /* Ajusta la imagen para que quepa sin cortarse */
+background-position: top center; /* Centrada arriba */
+background-repeat: no-repeat;
+margin-top: -20px; /* Sube la imagen un poco para pegarla al borde superior */
+margin-bottom: 20px; /* Espacio antes de la frase de bienvenida */
+}
 
-  /* --- ESTILOS DE TEXTO Y BOTONES (SIN CAMBIOS) --- */
-  .frase-bienvenida {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    color: #555;
-    font-size: 1.1em;
-    margin-bottom: 20px;
-    line-height: 1.6;
-    padding: 0 20px;
-  }
+/* --- ESTILOS DE TEXTO Y BOTONES (SIN CAMBIOS) --- */
+.frase-bienvenida {
+font-family: 'Playfair Display', serif;
+font-style: italic;
+color: #555;
+font-size: 1.1em;
+margin-bottom: 20px;
+line-height: 1.6;
+padding: 0 20px;
+}
 
-  h1 { font-family: 'Playfair Display', serif; color: #d4af37; font-size: 3em; margin: 10px 0;word-break: break-word;}
-  h2 { font-weight: 300; letter-spacing: 3px; color: #555; text-transform: uppercase; font-size: 1.1em; margin-bottom: 0; }
-  h3 { color: #333; margin-bottom: 10px; font-family: 'Playfair Display', serif; font-size: 1.6em; }
-  
-  .seccion { margin: 40px 0; padding: 0 15px; }
-  .resaltado { color: #d4af37; font-weight: 600; font-size: 1.2em; margin: 5px 0; }
-  .frase-regalo { font-style: italic; color: #666; font-size: 0.95em; max-width: 500px; margin: 0 auto 20px auto; line-height: 1.6; }
+h1 { font-family: 'Playfair Display', serif; color: #d4af37; font-size: 3em; margin: 10px 0; }
+h2 { font-weight: 300; letter-spacing: 3px; color: #555; text-transform: uppercase; font-size: 1.1em; margin-bottom: 0; }
+h3 { color: #333; margin-bottom: 10px; font-family: 'Playfair Display', serif; font-size: 1.6em; }
 
-  .boton {
-    display: inline-block;
-    text-decoration: none;
-    color: #fff !important;
-    padding: 12px 25px;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    margin-top: 10px;
-    border: none;
-    cursor: pointer;
-  }
+.seccion { margin: 40px 0; padding: 0 15px; }
+.resaltado { color: #d4af37; font-weight: 600; font-size: 1.2em; margin: 5px 0; }
+.frase-regalo { font-style: italic; color: #666; font-size: 0.95em; max-width: 500px; margin: 0 auto 20px auto; line-height: 1.6; }
 
-  .boton-mapa { background-color: #d4af37; font-size: 14px; }
-  .boton-mapa:hover { background-color: #b8962d; transform: translateY(-2px); }
+.boton {
+display: inline-block;
+text-decoration: none;
+color: #fff !important;
+padding: 12px 25px;
+border-radius: 50px;
+font-weight: 600;
+transition: all 0.3s ease;
+margin-top: 10px;
+border: none;
+cursor: pointer;
+}
 
-  .boton-liverpool { background-color: #e61d8c; font-size: 14px; }
-  .boton-liverpool:hover { background-color: #c01675; transform: translateY(-2px); }
+.boton-mapa { background-color: #d4af37; font-size: 14px; }
+.boton-mapa:hover { background-color: #b8962d; transform: translateY(-2px); }
 
-  .boton-confirmar { 
-    background-color: #8e44ad; 
-    font-size: 1.1em; 
-    padding: 15px 40px; 
-    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
-  }
-  .boton-confirmar:hover { background-color: #732d91; transform: scale(1.05); }
+.boton-liverpool { background-color: #e61d8c; font-size: 14px; }
+.boton-liverpool:hover { background-color: #c01675; transform: translateY(-2px); }
 
-  @media (max-width: 600px) {
-    h1 { font-size: 2.2em; }
-    .invitacion-container { margin: 10px; padding: 15px; }
-    .seccion { margin: 30px 0; }
-    .frase-bienvenida { font-size: 1em; }
-    .header-floral { height: 120px; margin-top: -15px; } /* Flores más pequeñas en celular */
-  }
-  
-  /* --- ANIMATIONS --- */
+.boton-confirmar { 
+background-color: #8e44ad; 
+font-size: 1.1em; 
+padding: 15px 40px; 
+box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
+}
+.boton-confirmar:hover { background-color: #732d91; transform: scale(1.05); }
 
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+@media (max-width: 600px) {
+h1 { font-size: 2.2em; }
+.invitacion-container { margin: 10px; padding: 15px; }
+.seccion { margin: 30px 0; }
+.frase-bienvenida { font-size: 1em; }
+.header-floral { height: 120px; margin-top: -15px; } /* Flores más pequeñas en celular */
+}
+/* --- ANIMATIONS --- */
 
-  @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+@keyframes fadeInUp {
+from { opacity: 0; transform: translateY(30px); }
+to { opacity: 1; transform: translateY(0); }
+}
 
-  @keyframes scaleIn {
-    from { opacity: 0; transform: scale(0.8); }
-    to { opacity: 1; transform: scale(1); }
-  }
+@keyframes fadeInDown {
+from { opacity: 0; transform: translateY(-20px); }
+to { opacity: 1; transform: translateY(0); }
+}
 
-  @keyframes shimmer {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
-  }
+@keyframes scaleIn {
+from { opacity: 0; transform: scale(0.8); }
+to { opacity: 1; transform: scale(1); }
+}
 
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-  }
+@keyframes shimmer {
+0% { background-position: -200% center; }
+100% { background-position: 200% center; }
+}
 
-  @keyframes expandWidth {
-    from { width: 0%; }
-    to { width: 30%; }
-  }
+@keyframes pulse {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.05); }
+}
 
-  @keyframes gentleFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-  }
-  .seccion {
-    animation: fadeInUp 0.7s ease-out both;
-  }
-  .seccion:nth-child(2) { animation-delay: 0.5s; }
-  .seccion:nth-child(3) { animation-delay: 0.7s; }
-  .seccion:nth-child(4) { animation-delay: 0.9s; }
-  .seccion:nth-child(5) { animation-delay: 1.1s; }
-  .seccion:nth-child(6) { animation-delay: 1.3s; }
-  .seccion:nth-child(7) { animation-delay: 1.5s; }
-  
-  h1 {
-    background: linear-gradient(90deg, #d4af37, #f0d060, #d4af37);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmer 4s linear infinite, fadeInUp 0.8s ease-out 0.9s both;
-  }
-  
-  .boton-confirmar {
-    animation: pulse 2.5s ease-in-out infinite 2s;
-  }
-  
-  .contador-grid {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-  }
-  .contador-item {
-    background: #fdfaf0;
-    border: 1px solid #d4af37;
-    border-radius: 10px;
-    padding: 10px;
-    min-width: 60px;
-  }
-  .contador-numero {
-    display: block;
-    font-size: 1.5em;
-    font-weight: 600;
-    color: #d4af37;
-    font-family: 'Playfair Display', serif;
-  }
-  .contador-etiqueta {
-    font-size: 0.7em;
-    text-transform: uppercase;
-    color: #888;
-    letter-spacing: 1px;
-  }
-  @media (max-width: 600px) {
-    .contador-grid { gap: 8px; }
-    .contador-item { min-width: 50px; padding: 5px; }
-    .contador-numero { font-size: 1.2em; }
-  }
-  
+@keyframes expandWidth {
+from { width: 0%; }
+to { width: 30%; }
+}
+
+@keyframes gentleFloat {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-6px); }
+}
+.seccion {
+animation: fadeInUp 0.7s ease-out both;
+}
+.seccion:nth-child(2) { animation-delay: 0.5s; }
+.seccion:nth-child(3) { animation-delay: 0.7s; }
+.seccion:nth-child(4) { animation-delay: 0.9s; }
+.seccion:nth-child(5) { animation-delay: 1.1s; }
+.seccion:nth-child(6) { animation-delay: 1.3s; }
+.seccion:nth-child(7) { animation-delay: 1.5s; }
+
+h1 {
+background: linear-gradient(90deg, #d4af37, #f0d060, #d4af37);
+background-size: 200% auto;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+animation: shimmer 4s linear infinite, fadeInUp 0.8s ease-out 0.9s both;
+}
+
+.boton-confirmar {
+animation: pulse 2.5s ease-in-out infinite 2s;
+}
+
+/* --- Contador regresivo --- */
+.contador-grid {
+display: flex;
+justify-content: center;
+gap: 15px;
+margin-top: 20px;
+}
+.contador-item {
+background: #fdfaf0;
+border: 1px solid #d4af37;
+border-radius: 10px;
+padding: 10px;
+min-width: 60px;
+}
+.contador-numero {
+display: block;
+font-size: 1.5em;
+font-weight: 600;
+color: #d4af37;
+font-family: 'Playfair Display', serif;
+}
+.contador-etiqueta {
+font-size: 0.7em;
+text-transform: uppercase;
+color: #888;
+letter-spacing: 1px;
+}
+@media (max-width: 600px) {
+.contador-grid { gap: 8px; }
+.contador-item { min-width: 50px; padding: 5px; }
+.contador-numero { font-size: 1.2em; }
+}
 </style>
 
 <div class="invitacion-container">
-  
-  <div class="header-floral"></div>
-  
-  <div class="seccion" style="margin-top: 0;">
-    <p class="frase-bienvenida">
-      "Hay momentos en la vida que se vuelven mágicos,
-      y compartirlos con las personas que más queremos
-      los hace inolvidables."
-    </p>
-    <h3>Mis XV Años</h3>
-    <h1>Victoria</h1>
-  </div>
-  
-  <div class="seccion">
-    <p class="resaltado">Sábado 11 de Julio, 2026</p>
-    <hr style="width: 30%; border: 0; border-top: 1px solid #d4af37; margin: auto;">
-	<div id="countdown" class="contador-grid">
-      <div class="contador-item">
-        <span id="days" class="contador-numero">00</span>
-        <span class="contador-etiqueta">Días</span>
-      </div>
-      <div class="contador-item">
-        <span id="hours" class="contador-numero">00</span>
-        <span class="contador-etiqueta">Hrs</span>
-      </div>
-      <div class="contador-item">
-        <span id="minutes" class="contador-numero">00</span>
-        <span class="contador-etiqueta">Min</span>
-      </div>
-      <div class="contador-item">
-        <span id="seconds" class="contador-numero">00</span>
-        <span class="contador-etiqueta">Seg</span>
-      </div>
-  </div>
 
-  <div class="seccion">
-    <h3>⛪ Ceremonia Religiosa</h3>
-    <p><b>Santuario San Juan Pablo II</b><br>Colima, Col.</p>
-    <p class="resaltado">16:30 hrs</p>
-    <a href="https://www.google.com/maps/place/Santuario+San+Juan+Pablo+II/@19.2729336,-103.7081474,17z/data=!3m1!4b1!4m6!3m5!1s0x84255ac2d3e8f7ff:0xe88c2b9946aae26d!8m2!3d19.2729336!4d-103.7081474!16s%2Fg%2F11gblb_1j_?entry=ttu&g_ep=EgoyMDI2MDMxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="boton boton-mapa">📍 Ver Ubicación</a>
-  </div>
-  
-  <div class="section">
-      <a href="evento_iglesia.ics" 
-         class="boton boton-mapa">
-         📅 Agendar Misa en mi Calendario
-      </a>
-  </div>
+<div class="header-floral"></div>
 
-  <div class="seccion">
-    <h3>🎉 Recepción</h3>
-    <p><b>Palmares Jardín</b><br>Villa de Álvarez, Col.</p>
-    <p class="resaltado">19:00 hrs</p>
-    <a href="https://www.google.com/maps/place/Palmares+Jard%C3%ADn+Eventos/@19.2701549,-103.7479125,17z/data=!3m1!4b1!4m6!3m5!1s0x8425453cccace5c3:0x84b7c182fb596416!8m2!3d19.2701549!4d-103.7479125!16s%2Fg%2F11c0xps7pv?entry=ttu&g_ep=EgoyMDI2MDMxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="boton boton-mapa">📍 Ver Ubicación</a>
-  </div>
-  
-  <div class="section">
-      <a href="evento.ics" 
-         class="boton boton-mapa">
-         📅 Agendar Recepción en mi Calendario
-      </a>
-   </div>
+<div class="seccion" style="margin-top: 0;">
+<p class="frase-bienvenida">
+"Hay momentos en la vida que se vuelven mágicos,
+y compartirlos con las personas que más queremos
+los hace inolvidables."
+</p>
+<h3>Mis XV Años</h3>
+<h1>Victoria</h1>
+</div>
 
-  <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
+<div class="seccion">
+<p class="resaltado">Sábado 11 de Julio, 2026</p>
+<hr style="width: 30%; border: 0; border-top: 1px solid #d4af37; margin: auto;">
+<div id="countdown" class="contador-grid">
+<div class="contador-item">
+<span id="days" class="contador-numero">00</span>
+<span class="contador-etiqueta">Días</span>
+</div>
+<div class="contador-item">
+<span id="hours" class="contador-numero">00</span>
+<span class="contador-etiqueta">Hrs</span>
+</div>
+<div class="contador-item">
+<span id="minutes" class="contador-numero">00</span>
+<span class="contador-etiqueta">Min</span>
+</div>
+<div class="contador-item">
+<span id="seconds" class="contador-numero">00</span>
+<span class="contador-etiqueta">Seg</span>
+</div>
+</div>
 
-  <div class="seccion">
-    <h3>🎁 Sugerencia de Regalos</h3>
-    <p class="frase-regalo">
-      "Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle con Victoria, 
-      contaremos con una lluvia de sobres el día del evento o puedes elegir algo de nuestra sugerencias de regalos."
-    </p>
-    
-    <a href="#" target="_blank" class="boton boton-liverpool">🛍️ Monedero Liverpool</a>
-    
-	<p style="margin-top: 15px; font-size: 0.9em; color: #555;">
-      🏦️ <b>Transferencia:</b> Cuenta 1331831329 Banorte.
-    </p>
-    
-	<p style="margin-top: 15px; font-size: 0.9em; color: #555;">
-      ✉️ <b>Lluvia de sobres:</b> Se dispondrá de un cofre en la recepción.
-    </p>
-  </div>
+<div class="seccion">
+<h3>⛪ Ceremonia Religiosa</h3>
+<p><b>Santuario San Juan Pablo II</b><br>Colima, Col.</p>
+<p class="resaltado">16:30 hrs</p>
+<a href="https://www.google.com/maps/place/Santuario+San+Juan+Pablo+II/@19.2729336,-103.7081474,17z/data=!3m1!4b1!4m6!3m5!1s0x84255ac2d3e8f7ff:0xe88c2b9946aae26d!8m2!3d19.2729336!4d-103.7081474!16s%2Fg%2F11gblb_1j_?entry=ttu&g_ep=EgoyMDI2MDMxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="boton boton-mapa">📍 Ver Ubicación</a>
+</div>
 
-  <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
+<div class="section">
+<a href="evento_iglesia.ics" 
+class="boton boton-mapa">
+📅 Agendar Misa en mi Calendario
+</a>
+</div>
 
-  <div class="seccion">
-    <p style="margin-bottom: 20px;">Te agradeceremos confirmar tu asistencia para ayudarnos a organizar mejor este día tan especial.</p>
+<div class="seccion">
+<h3>🎉 Recepción</h3>
+<p><b>Palmares Jardín</b><br>Villa de Álvarez, Col.</p>
+<p class="resaltado">19:00 hrs</p>
+<a href="https://www.google.com/maps/place/Palmares+Jard%C3%ADn+Eventos/@19.2701549,-103.7479125,17z/data=!3m1!4b1!4m6!3m5!1s0x8425453cccace5c3:0x84b7c182fb596416!8m2!3d19.2701549!4d-103.7479125!16s%2Fg%2F11c0xps7pv?entry=ttu&g_ep=EgoyMDI2MDMxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="boton boton-mapa">📍 Ver Ubicación</a>
+</div>
+
+<div class="section">
+<a href="evento.ics" 
+class="boton boton-mapa">
+📅 Agendar Recepción en mi Calendario
+</a>
+</div>
+
+<hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
+
+<div class="seccion">
+<h3>🎁 Sugerencia de Regalos</h3>
+<p class="frase-regalo">
+"Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle con Victoria, 
+contaremos con una lluvia de sobres el día del evento o puedes elegir algo de nuestra sugerencias de regalos."
+</p>
+
+<a href="#" target="_blank" class="boton boton-liverpool">🛍️ Monedero Liverpool</a>
+
+<p style="margin-top: 15px; font-size: 0.9em; color: #555;">
+🏦️ <b>Transferencia:</b> Cuenta 1331831329 Banorte.
+</p>
+
+<p style="margin-top: 15px; font-size: 0.9em; color: #555;">
+✉️ <b>Lluvia de sobres:</b> Se dispondrá de un cofre en la recepción.
+</p>
+</div>
+
+<hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
+
+<div class="seccion">
+<p style="margin-bottom: 20px;">Te agradeceremos confirmar tu asistencia para ayudarnos a organizar mejor este día tan especial.</p>
 	<p style="margin-bottom: 15px; font-size: 0.8em;">Por seguridad, ingresa tu nombre y apellidos, o apellidos de familia. Ejemplos: Juan Lopez Santana o Lopez Santana:</p>
   
     <input type="text" id="nombreInvitado" placeholder="Escribe tu nombre aquí..." 
@@ -288,67 +287,74 @@
     </div>
     <a href="https://forms.gle/7ivNYebsPF83v2Xz9" id="btnConfirmar" target="_blank" class="boton boton-confirmar" 
      style="background-color: #ccc; pointer-events: none; cursor: not-allowed; transition: 0.3s; opacity: 0.5;">✨ Confirmar Asistencia</a>
-    <p style="font-size: 0.8em; color: #888; margin-top: 15px;">Confirmar antes del 15 de Junio de 2026</p>
-  </div>
+<p style="font-size: 0.8em; color: #888; margin-top: 15px;">Confirmar antes del 15 de Junio de 2026</p>
+</div>
 
 </div>
 
 <script>
-  function updateCountdown() {
-    // Fecha objetivo: 11 de Julio 2026 a las 16:30 (Hora de la Misa)
-    const eventDate = new Date("July 11, 2026 16:30:00").getTime();
-    const now = new Date().getTime();
-    const difference = eventDate - now;
+function updateCountdown() {
+// Fecha objetivo: 11 de Julio 2026 a las 16:30 (Hora de la Misa)
+const eventDate = new Date("July 11, 2026 16:30:00").getTime();
+const now = new Date().getTime();
+const difference = eventDate - now;
 
-    if (difference <= 0) {
-      document.getElementById("countdown").innerHTML = "<p class='resaltado'>¡Hoy es el gran día!</p>";
-      return;
-    }
+if (difference <= 0) {
+document.getElementById("countdown").innerHTML = "<p class='resaltado'>¡Hoy es el gran día!</p>";
+return;
+}
 
-    const d = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const s = Math.floor((difference % (1000 * 60)) / 1000);
+const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+const s = Math.floor((difference % (1000 * 60)) / 1000);
 
-    document.getElementById("days").innerText = d < 10 ? "0" + d : d;
-    document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
-    document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
-    document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
-  }
+document.getElementById("days").innerText = d < 10 ? "0" + d : d;
+document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
+document.getElementById("minutes").innerText = m < 10 ? "0" + m : m;
+document.getElementById("seconds").innerText = s < 10 ? "0" + s : s;
+}
 
-  // Actualizar cada segundo
-  setInterval(updateCountdown, 1000);
-  updateCountdown(); // Ejecutar una vez al cargar
-  
-    // --- TU LISTA DE INVITADOS ---
-const inputNombre = document.getElementById('nombreInvitado');
-const btnConfirmar = document.getElementById('btnConfirmar');
-const mensajeError = document.getElementById('mensajeError');
+// Actualizar cada segundo
+setInterval(updateCountdown, 1000);
+updateCountdown(); // Ejecutar una vez al cargar
 
-// REEMPLAZA ESTA URL POR LA QUE TE DIO GOOGLE APPS SCRIPT
-const URL_SCRIPT_GOOGLE = "https://script.google.com/macros/s/AKfycbx6MPYop40JpZ-LNBWWkWTSeFJiSa-Vl_SOl-zV-9Wpt6g5JL_K7CD5pLWENbljH9dFxg/exec";
+	  // --- TU LISTA DE INVITADOS ---
+  // Escribe los nombres exactamente como los quieres (pueden ser apellidos o nombres completos)
+  // El sistema ignorará mayúsculas/minúsculas automáticamente.
+  const listaInvitados = [
+	"Cecilia Cano Balboa",
+	"Aguirre Balboa",
+    "Alfredo Aguirre Valdez"
+  ];
 
-inputNombre.addEventListener('change', function() {
-  const nombre = inputNombre.value;
-  
-  if (nombre.length < 3) return;
+  const inputNombre = document.getElementById('nombreInvitado');
+  const btnConfirmar = document.getElementById('btnConfirmar');
+  const mensajeError = document.getElementById('mensajeError');
 
-  // Consultamos al servidor de Google de forma invisible
-  fetch(`${URL_SCRIPT_GOOGLE}?nombre=${encodeURIComponent(nombre)}`)
-    .then(response => response.json())
-    .then(data => {
-      if (data.autorizado) {
-        btnConfirmar.style.backgroundColor = "#8e44ad";
-        btnConfirmar.style.pointerEvents = "auto";
-        btnConfirmar.style.opacity = "1";
-        mensajeError.style.display = "none";
-      } else {
-        btnConfirmar.style.backgroundColor = "#ccc";
-        btnConfirmar.style.pointerEvents = "none";
-        btnConfirmar.style.opacity = "0.5";
+  inputNombre.addEventListener('input', function() {
+    const valorInput = inputNombre.value.trim().toLowerCase();
+    
+    // Verificamos si el nombre ingresado está en la lista (ignorando mayúsculas)
+    const encontrado = listaInvitados.some(invitado => invitado.toLowerCase() === valorInput);
+
+    if (encontrado) {
+      // ACTIVAR BOTÓN
+      btnConfirmar.style.backgroundColor = "#8e44ad"; // Color morado original
+      btnConfirmar.style.pointerEvents = "auto";
+      btnConfirmar.style.cursor = "pointer";
+      btnConfirmar.style.opacity = "1";
+      mensajeError.style.display = "none";
+      inputNombre.style.borderColor = "#27ae60"; // Verde de éxito
+    } else {
+      // DESACTIVAR BOTÓN (si borran el nombre o está mal)
+      btnConfirmar.style.backgroundColor = "#ccc";
+      btnConfirmar.style.pointerEvents = "none";
+      btnConfirmar.style.opacity = "0.5";
+      
+      if (valorInput.length > 5) { // Mostrar error solo si ya escribió algo largo
         mensajeError.style.display = "block";
       }
-    })
-    .catch(error => console.error('Error:', error));
-});
+    }
+  });
 </script>
