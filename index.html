@@ -1,4 +1,3 @@
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;600&display=swap');
@@ -8,7 +7,7 @@
     margin: 0;
     padding: 0;
     /* REEMPLAZA ESTA URL POR LA DE TU IMAGEN DE FONDO GENERAL */
-    background-image: url('./Pictures/Fondo.jpg'); 
+    background-image: url('Pictures/Fondo.jpg'); 
     background-size: cover; /* Cubre toda la pantalla */
     background-position: center; /* Centra la imagen */
     background-attachment: fixed; /* El fondo se queda quieto al hacer scroll */
@@ -35,7 +34,7 @@
     width: 100%;
     height: 180px; /* Ajusta la altura según tu imagen de flores */
     /* REEMPLAZA ESTA URL POR LA DE TU IMAGEN DE FLORES SUPERIORES (PNG RECOMENDADO) */
-    background-image: url('./Pictures/Flores.png');
+    background-image: url('Pictures/Flores.png');
     background-size: contain; /* Ajusta la imagen para que quepa sin cortarse */
     background-position: top center; /* Centrada arriba */
     background-repeat: no-repeat;
@@ -54,7 +53,7 @@
     padding: 0 20px;
   }
 
-  h1 { font-family: 'Playfair Display', serif; color: #d4af37; font-size: 3em; margin: 10px 0; }
+  h1 { font-family: 'Playfair Display', serif; color: #d4af37; font-size: 3em; margin: 10px 0;word-break: break-word;}
   h2 { font-weight: 300; letter-spacing: 3px; color: #555; text-transform: uppercase; font-size: 1.1em; margin-bottom: 0; }
   h3 { color: #333; margin-bottom: 10px; font-family: 'Playfair Display', serif; font-size: 1.6em; }
   
@@ -96,6 +95,7 @@
     .frase-bienvenida { font-size: 1em; }
     .header-floral { height: 120px; margin-top: -15px; } /* Flores más pequeñas en celular */
   }
+  
   /* --- ANIMATIONS --- */
 
   @keyframes fadeInUp {
@@ -155,7 +155,6 @@
     animation: pulse 2.5s ease-in-out infinite 2s;
   }
   
-  /* --- Contador regresivo --- */
   .contador-grid {
     display: flex;
     justify-content: center;
@@ -187,6 +186,7 @@
     .contador-item { min-width: 50px; padding: 5px; }
     .contador-numero { font-size: 1.2em; }
   }
+  
 </style>
 
 <div class="invitacion-container">
@@ -200,13 +200,13 @@
       los hace inolvidables."
     </p>
     <h3>Mis XV Años</h3>
-    <h1>Victoria Getsemani</h1>
+    <h1>Victoria</h1>
   </div>
   
   <div class="seccion">
     <p class="resaltado">Sábado 11 de Julio, 2026</p>
     <hr style="width: 30%; border: 0; border-top: 1px solid #d4af37; margin: auto;">
-    <div id="countdown" class="contador-grid">
+	<div id="countdown" class="contador-grid">
       <div class="contador-item">
         <span id="days" class="contador-numero">00</span>
         <span class="contador-etiqueta">Días</span>
@@ -224,7 +224,7 @@
         <span class="contador-etiqueta">Seg</span>
       </div>
   </div>
-  
+
   <div class="seccion">
     <h3>⛪ Ceremonia Religiosa</h3>
     <p><b>Santuario San Juan Pablo II</b><br>Colima, Col.</p>
@@ -318,43 +318,36 @@
   // Actualizar cada segundo
   setInterval(updateCountdown, 1000);
   updateCountdown(); // Ejecutar una vez al cargar
+  
+    // --- TU LISTA DE INVITADOS ---
+const inputNombre = document.getElementById('nombreInvitado');
+const btnConfirmar = document.getElementById('btnConfirmar');
+const mensajeError = document.getElementById('mensajeError');
 
-	  // --- TU LISTA DE INVITADOS ---
-  // Escribe los nombres exactamente como los quieres (pueden ser apellidos o nombres completos)
-  // El sistema ignorará mayúsculas/minúsculas automáticamente.
-  const listaInvitados = [
-	"Cecilia Cano Balboa",
-	"Aguirre Balboa",
-    "Alfredo Aguirre Valdez"
-  ];
+// REEMPLAZA ESTA URL POR LA QUE TE DIO GOOGLE APPS SCRIPT
+const URL_SCRIPT_GOOGLE = "https://script.google.com/macros/s/AKfycbx6MPYop40JpZ-LNBWWkWTSeFJiSa-Vl_SOl-zV-9Wpt6g5JL_K7CD5pLWENbljH9dFxg/exec";
 
-  const inputNombre = document.getElementById('nombreInvitado');
-  const btnConfirmar = document.getElementById('btnConfirmar');
-  const mensajeError = document.getElementById('mensajeError');
+inputNombre.addEventListener('change', function() {
+  const nombre = inputNombre.value;
+  
+  if (nombre.length < 3) return;
 
-  inputNombre.addEventListener('input', function() {
-    const valorInput = inputNombre.value.trim().toLowerCase();
-    
-    // Verificamos si el nombre ingresado está en la lista (ignorando mayúsculas)
-    const encontrado = listaInvitados.some(invitado => invitado.toLowerCase() === valorInput);
-
-    if (encontrado) {
-      // ACTIVAR BOTÓN
-      btnConfirmar.style.backgroundColor = "#8e44ad"; // Color morado original
-      btnConfirmar.style.pointerEvents = "auto";
-      btnConfirmar.style.cursor = "pointer";
-      btnConfirmar.style.opacity = "1";
-      mensajeError.style.display = "none";
-      inputNombre.style.borderColor = "#27ae60"; // Verde de éxito
-    } else {
-      // DESACTIVAR BOTÓN (si borran el nombre o está mal)
-      btnConfirmar.style.backgroundColor = "#ccc";
-      btnConfirmar.style.pointerEvents = "none";
-      btnConfirmar.style.opacity = "0.5";
-      
-      if (valorInput.length > 5) { // Mostrar error solo si ya escribió algo largo
+  // Consultamos al servidor de Google de forma invisible
+  fetch(`${URL_SCRIPT_GOOGLE}?nombre=${encodeURIComponent(nombre)}`)
+    .then(response => response.json())
+    .then(data => {
+      if (data.autorizado) {
+        btnConfirmar.style.backgroundColor = "#8e44ad";
+        btnConfirmar.style.pointerEvents = "auto";
+        btnConfirmar.style.opacity = "1";
+        mensajeError.style.display = "none";
+      } else {
+        btnConfirmar.style.backgroundColor = "#ccc";
+        btnConfirmar.style.pointerEvents = "none";
+        btnConfirmar.style.opacity = "0.5";
         mensajeError.style.display = "block";
       }
-    }
-  });
+    })
+    .catch(error => console.error('Error:', error));
+});
 </script>
