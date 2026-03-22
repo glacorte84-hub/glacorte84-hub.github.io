@@ -8,7 +8,7 @@ body {
 margin: 0;
 padding: 0;
 /* REEMPLAZA ESTA URL POR LA DE TU IMAGEN DE FONDO GENERAL */
-background-image: url('./Pictures/Fondo.jpg'); 
+background-image: url('./Pictures/Fondo.png'); 
 background-size: cover; /* Cubre toda la pantalla */
 background-position: center; /* Centra la imagen */
 background-attachment: fixed; /* El fondo se queda quieto al hacer scroll */
@@ -275,21 +275,34 @@ contaremos con una lluvia de sobres el día del evento o puedes elegir algo de n
 
 <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
 
-<div class="seccion">
-<p style="margin-bottom: 20px;">Te agradeceremos confirmar tu asistencia para ayudarnos a organizar mejor este día tan especial.</p>
-	<p style="margin-bottom: 15px; font-size: 0.8em;">Por seguridad, ingresa tu nombre y apellidos, o apellidos de familia. Ejemplos: Juan Lopez Santana o Lopez Santana:</p>
+<div class="seccion" style="background-color: #fdfaf0; padding: 25px; border-radius: 20px; border: 1px solid #d4af37;">
+  <h3 style="font-size: 1.4em;">✨ Confirmar Asistencia</h3>
+  <p style="font-size: 0.8em; color: #888; margin-top: 15px;">Importante Confirmar antes del 15 de Junio de 2026</p>
+  <p style="margin-bottom: 20px;">Te agradeceremos confirmar tu asistencia para ayudarnos a organizar mejor este día tan especial.</p>
+  <p style="margin-bottom: 15px; font-size: 0.8em;">Ingresa tu primer nombre y apellidos, o apellidos de familia. Ejemplos: Juan Lopez Santana o Lopez Santana:</p>
   
-    <input type="text" id="nombreInvitado" placeholder="Escribe tu nombre aquí..." 
-         style="width: 80%; padding: 12px; border-radius: 10px; border: 1px solid #ccc; margin-bottom: 15px; text-align: center; font-family: 'Poppins', sans-serif;">
+  <input type="text" id="nombreInvitado" placeholder="Escribe tu nombre aquí y presiona la lupa para la busqueda..." 
+         style="width: 80%; padding: 12px; border-radius: 10px; border: 1px solid #ccc; margin-bottom: 15px; text-align: center;">
 
-    <div id="mensajeError" style="color: #c0392b; font-size: 0.8em; margin-bottom: 10px; display: none;">
-         Lo sentimos, ese nombre no coincide con nuestra lista.
-    </div>
-    <a href="https://forms.gle/7ivNYebsPF83v2Xz9" id="btnConfirmar" target="_blank" class="boton boton-confirmar" 
-     style="background-color: #ccc; pointer-events: none; cursor: not-allowed; transition: 0.3s; opacity: 0.5;">✨ Confirmar Asistencia</a>
-<p style="font-size: 0.8em; color: #888; margin-top: 15px;">Confirmar antes del 15 de Junio de 2026</p>
+  <button id="btnBuscar" style="position: absolute; right: 50px; top: 69%; transform: translateY(-50%); background: none; border: none; cursor: pointer; padding: 5px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="Buscar" style="width: 20px; height: 20px; opacity: 0.6;">
+  </button>
+
+  <div id="mensajeError" style="color: #c0392b; font-size: 0.8em; margin-bottom: 10px; display: none;">
+   ⚠️ Nombre no encontrado en la lista de invitados.
+  </div>
+
+  <div id="cargando" style="display: none; font-size: 0.8em; color: #8e44ad; margin-bottom: 10px;">
+   🔍 Buscando en la lista...
+  </div>
+
+  <button id="btnConfirmar" disabled class="boton" 
+     style="background-color: #ccc; border: none; cursor: not-allowed; transition: 0.3s; opacity: 0.5; width: 250px;">
+     Confirmar Asistencia
+  </button>
 </div>
 
+</div>
 </div>
 
 <script>
@@ -326,31 +339,50 @@ updateCountdown(); // Ejecutar una vez al cargar
   const inputNombre = document.getElementById('nombreInvitado');
   const btnConfirmar = document.getElementById('btnConfirmar');
   const mensajeError = document.getElementById('mensajeError');
+  const btnBuscar = document.getElementById('btnBuscar');
+  const cargando = document.getElementById('cargando');
 
   // REEMPLAZA ESTA URL POR LA QUE TE DIO GOOGLE APPS SCRIPT
 const URL_SCRIPT_GOOGLE = "https://script.google.com/macros/s/AKfycbx6MPYop40JpZ-LNBWWkWTSeFJiSa-Vl_SOl-zV-9Wpt6g5JL_K7CD5pLWENbljH9dFxg/exec";
 
-inputNombre.addEventListener('change', function() {
-  const nombre = inputNombre.value;
-  
+// Función principal de búsqueda
+function validarInvitado() {
+  const nombre = inputNombre.value.trim();
   if (nombre.length < 3) return;
 
-  // Consultamos al servidor de Google de forma invisible
+  // Mostrar estado de carga y ocultar errores previos
+  cargando.style.display = "block";
+  mensajeError.style.display = "none";
+  btnConfirmar.disabled = true;
+  btnConfirmar.style.opacity = "0.5";
+
   fetch(`${URL_SCRIPT_GOOGLE}?nombre=${encodeURIComponent(nombre)}`)
     .then(response => response.json())
     .then(data => {
+      cargando.style.display = "none";
       if (data.autorizado) {
+        btnConfirmar.disabled = false; 
         btnConfirmar.style.backgroundColor = "#8e44ad";
-        btnConfirmar.style.pointerEvents = "auto";
+        btnConfirmar.style.cursor = "pointer";
         btnConfirmar.style.opacity = "1";
-        mensajeError.style.display = "none";
+        inputNombre.style.borderColor = "#27ae60"; // Borde verde si lo encuentra
       } else {
-        btnConfirmar.style.backgroundColor = "#ccc";
-        btnConfirmar.style.pointerEvents = "none";
-        btnConfirmar.style.opacity = "0.5";
-		mensajeError.style.display = "block";
+        mensajeError.style.display = "block";
+        inputNombre.style.borderColor = "#c0392b"; // Borde rojo si no
       }
-   })
-    .catch(error => console.error('Error:', error));
-});
-</script>
+    })
+    .catch(error => {
+      cargando.style.display = "none";
+      console.error('Error:', error);
+    });
+}
+
+// Escuchar clic en la lupa
+btnBuscar.addEventListener('click', validarInvitado);
+
+// Escuchar tecla "Enter" (útil para móviles y PC)
+inputNombre.addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    validarInvitado();
+  }
+});</script>
