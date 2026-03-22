@@ -275,25 +275,31 @@ contaremos con una lluvia de sobres el día del evento o puedes elegir algo de n
 
 <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
 
-<div class="seccion" style="background-color: #fdfaf0; padding: 25px; border-radius: 20px; border: 1px solid #d4af37;">
+<div class="seccion" style="background-color: #fdfaf0; padding: 25px; border-radius: 20px; border: 1px solid #d4af37; position: relative;">
   <h3 style="font-size: 1.4em;">✨ Confirmar Asistencia</h3>
   <p style="font-size: 0.8em; color: #888; margin-top: 15px;">Importante Confirmar antes del 15 de Junio de 2026</p>
   <p style="margin-bottom: 20px;">Te agradeceremos confirmar tu asistencia para ayudarnos a organizar mejor este día tan especial.</p>
   <p style="margin-bottom: 15px; font-size: 0.8em;">Ingresa tu primer nombre y apellidos, o apellidos de familia. Ejemplos: Juan Lopez Santana o Lopez Santana:</p>
   
-  <input type="text" id="nombreInvitado" placeholder="Escribe tu nombre aquí y presiona la lupa para la busqueda..." 
-         style="width: 80%; padding: 12px; border-radius: 10px; border: 1px solid #ccc; margin-bottom: 15px; text-align: center;">
+  <div style="display: flex; align-items: center; justify-content: center; max-width: 90%; margin: 0 auto 15px auto; gap: 5px;">
+    <input type="text" id="nombreInvitado" placeholder="Escribe tu nombre aquí..." 
+           style="flex: 1; padding: 12px; border-radius: 10px; border: 1px solid #ccc; text-align: center; font-family: 'Poppins', sans-serif;">
+    
+    <button id="btnBuscar" style="background: #d4af37; border: none; border-radius: 10px; cursor: pointer; padding: 10px; display: flex; align-items: center; justify-content: center;">
+      <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="Buscar" style="width: 20px; height: 20px; filter: invert(1);">
+    </button>
+  </div>
 
-  <button id="btnBuscar" style="position: absolute; right: 50px; top: 69%; transform: translateY(-50%); background: none; border: none; cursor: pointer; padding: 5px;">
-    <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="Buscar" style="width: 20px; height: 20px; opacity: 0.6;">
-  </button>
-
-  <div id="mensajeError" style="color: #c0392b; font-size: 0.8em; margin-bottom: 10px; display: none;">
-   ⚠️ Nombre no encontrado en la lista de invitados.
+  <div id="mensajeError" style="color: #c0392b; font-size: 0.8em; margin-bottom: 10px; display: none; font-weight: bold;">
+    ⚠️ Nombre no encontrado en la lista de invitados.
   </div>
 
   <div id="cargando" style="display: none; font-size: 0.8em; color: #8e44ad; margin-bottom: 10px;">
-   🔍 Buscando en la lista...
+    🔍 Buscando en la lista...
+  </div>
+  
+  <div id="mensajeExito" style="color: #27ae60; font-size: 0.8em; margin-bottom: 10px; display: none; font-weight: bold;">
+    ✅ ¡Nombre encontrado! Ya puedes confirmar tu asistencia abajo.
   </div>
 
   <button id="btnConfirmar" disabled class="boton" 
@@ -341,6 +347,7 @@ updateCountdown(); // Ejecutar una vez al cargar
   const mensajeError = document.getElementById('mensajeError');
   const btnBuscar = document.getElementById('btnBuscar');
   const cargando = document.getElementById('cargando');
+  const mensajeExito = document.getElementById('mensajeExito');
 
   // REEMPLAZA ESTA URL POR LA QUE TE DIO GOOGLE APPS SCRIPT
 const URL_SCRIPT_GOOGLE = "https://script.google.com/macros/s/AKfycbx6MPYop40JpZ-LNBWWkWTSeFJiSa-Vl_SOl-zV-9Wpt6g5JL_K7CD5pLWENbljH9dFxg/exec";
@@ -353,6 +360,7 @@ function validarInvitado() {
   // Mostrar estado de carga y ocultar errores previos
   cargando.style.display = "block";
   mensajeError.style.display = "none";
+  mensajeExito.style.display = "none";
   btnConfirmar.disabled = true;
   btnConfirmar.style.opacity = "0.5";
 
@@ -361,7 +369,8 @@ function validarInvitado() {
     .then(data => {
       cargando.style.display = "none";
       if (data.autorizado) {
-        btnConfirmar.disabled = false; 
+        mensajeExito.style.display = "block";
+		btnConfirmar.disabled = false; 
         btnConfirmar.style.backgroundColor = "#8e44ad";
         btnConfirmar.style.cursor = "pointer";
         btnConfirmar.style.opacity = "1";
