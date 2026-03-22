@@ -396,4 +396,12 @@ inputNombre.addEventListener('keypress', function(e) {
   if (e.key === 'Enter') {
     validarInvitado();
   }
-});</script>
+  });
+ // --- Agregar esta función para que el botón abra el formulario ---
+btnConfirmar.addEventListener('click', function() {
+  // Solo se ejecutará si el botón NO está deshabilitado
+  if (!btnConfirmar.disabled) {
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSewjT2VO-QcOrl3O319jPmh0vwK8puzE9W48tuCCha5KJ8tQg/viewform?usp=dialog", "_blank");
+  }
+  });
+</script>
