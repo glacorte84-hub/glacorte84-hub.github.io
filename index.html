@@ -299,7 +299,7 @@ contaremos con una lluvia de sobres el día del evento o puedes elegir algo de n
   </div>
   
   <div id="mensajeExito" style="color: #27ae60; font-size: 0.8em; margin-bottom: 10px; display: none; font-weight: bold;">
-    ✅ ¡Nombre encontrado! Ya puedes confirmar tu asistencia abajo.
+   
   </div>
 
   <button id="btnConfirmar" disabled class="boton" 
@@ -369,11 +369,14 @@ function validarInvitado() {
     .then(data => {
       cargando.style.display = "none";
       if (data.autorizado) {
+        // PERSONALIZAMOS EL MENSAJE CON LOS DATOS DEL EXCEL
+        mensajeExito.innerHTML = `✅ ¡Nombre encontrado!<br>${data.nombre} (${data.cantidad} personas)`;
         mensajeExito.style.display = "block";
-		btnConfirmar.disabled = false; 
+        inputNombre.style.borderColor = "#27ae60";
+        btnConfirmar.disabled = false; 
         btnConfirmar.style.backgroundColor = "#8e44ad";
-        btnConfirmar.style.cursor = "pointer";
         btnConfirmar.style.opacity = "1";
+        btnConfirmar.style.cursor = "pointer";
         inputNombre.style.borderColor = "#27ae60"; // Borde verde si lo encuentra
       } else {
         mensajeError.style.display = "block";
