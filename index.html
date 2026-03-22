@@ -370,7 +370,7 @@ function validarInvitado() {
       cargando.style.display = "none";
       if (data.autorizado) {
         // PERSONALIZAMOS EL MENSAJE CON LOS DATOS DEL EXCEL
-        mensajeExito.innerHTML = `✅ ¡Nombre encontrado!<br>${data.nombre} (${data.cantidad} personas)`;
+        mensajeExito.innerHTML = `✅ ¡Código de invitación encontrado!<br>${data.nombre} (${data.cantidad} personas)`;
         mensajeExito.style.display = "block";
         inputNombre.style.borderColor = "#27ae60";
         btnConfirmar.disabled = false; 
