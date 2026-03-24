@@ -276,9 +276,9 @@ contaremos con una lluvia de sobres el día del evento o puedes elegir algo de n
 <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
 
 <div class="seccion" style="background-color: #fdfaf0; padding: 25px; border-radius: 20px; border: 1px solid #d4af37; position: relative;">
-  <h3 style="font-size: 1.4em;">✨ Confirmar Asistencia</h3>
-  <p style="font-size: 0.8em; color: #888; margin-top: 15px;">Importante Confirmar antes del 15 de Junio de 2026</p>
-  <p style="margin-bottom: 20px;">Te agradeceremos confirmar tu asistencia para ayudarnos a organizar mejor este día tan especial.</p>
+  <h3 style="font-size: 1.4em;">✨ Confirmación o Declinación</h3>
+  <p style="font-size: 0.8em; color: #888; margin-top: 15px;">Importante Confirmar o Declinar antes del 15 de Junio de 2026</p>
+  <p style="margin-bottom: 20px;">Te agradeceremos confirmar tu registro para ayudarnos a organizar mejor este día tan especial.</p>
   
   <div style="display: flex; align-items: center; justify-content: center; max-width: 90%; margin: 0 auto 15px auto; gap: 5px;">
     <input type="text" id="nombreInvitado" placeholder="Ingresa tu código de invitación aquí..." 
@@ -303,7 +303,7 @@ contaremos con una lluvia de sobres el día del evento o puedes elegir algo de n
 
   <button id="btnConfirmar" disabled class="boton" 
      style="background-color: #ccc; border: none; cursor: not-allowed; transition: 0.3s; opacity: 0.5; width: 250px;">
-     Confirmar Asistencia
+     Confirmar o Declinar
   </button>
 </div>
 
@@ -352,6 +352,7 @@ updateCountdown(); // Ejecutar una vez al cargar
 const URL_SCRIPT_GOOGLE = "https://script.google.com/macros/s/AKfycbx6MPYop40JpZ-LNBWWkWTSeFJiSa-Vl_SOl-zV-9Wpt6g5JL_K7CD5pLWENbljH9dFxg/exec";
 
 // Función principal de búsqueda
+let nombreRealParaForm = ""; // Variable global para guardar el nombre de la Columna B
 function validarInvitado() {
   const nombre = inputNombre.value.trim();
   if (nombre.length < 3) return;
@@ -368,8 +369,9 @@ function validarInvitado() {
     .then(data => {
       cargando.style.display = "none";
       if (data.autorizado) {
+		nombreRealParaForm = data.nombre; // Guardamos el NOMBRE (Columna B) en nuestra variable global
         // PERSONALIZAMOS EL MENSAJE CON LOS DATOS DEL EXCEL
-        mensajeExito.innerHTML = `✅ ¡Código de invitación encontrado!<br>${data.nombre} (${data.cantidad} personas)`;
+        mensajeExito.innerHTML = `✅ ¡Código validado!<br>${data.nombre} (${data.cantidad} personas). Completar registro  precionando en el boton aquí abajo`;
         mensajeExito.style.display = "block";
         inputNombre.style.borderColor = "#27ae60";
         btnConfirmar.disabled = false; 
@@ -399,9 +401,11 @@ inputNombre.addEventListener('keypress', function(e) {
   });
  // --- Agregar esta función para que el botón abra el formulario ---
 btnConfirmar.addEventListener('click', function() {
+  const nombreParaForm = encodeURIComponent(inputNombre.value.trim()); //Obtenemos el nombre que devolvió el Excel de Lista de Invitados
+  const urlFinal = `https://docs.google.com/forms/d/e/1FAIpQLSewjT2VO-QcOrl3O319jPmh0vwK8puzE9W48tuCCha5KJ8tQg/viewform?usp=pp_url&entry.87827859=${encodeURIComponent(nombreRealParaForm)}`; //// 3. Construimos la URL final
   // Solo se ejecutará si el botón NO está deshabilitado
   if (!btnConfirmar.disabled) {
-    window.open("https://docs.google.com/forms/d/e/1FAIpQLSewjT2VO-QcOrl3O319jPmh0vwK8puzE9W48tuCCha5KJ8tQg/viewform?usp=dialog", "_blank");
+    window.open(urlFinal, "_blank");
   }
   });
 </script>
