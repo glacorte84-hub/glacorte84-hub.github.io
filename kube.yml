@@ -62,6 +62,16 @@ spec:
     - www.vickyquince.com
     secretName: mono-vickyquince-tls
   rules:  
+  - host: www.vickyquince.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: quincevictoria-service
+            port: 
+              number: 8080
   - host: vickyquince.com
     http:
       paths:
